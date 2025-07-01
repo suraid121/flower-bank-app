@@ -13,7 +13,7 @@
     }
     </style>
 </head>
-<body class=" min-h-screen text-gray-100 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 ">
+<body class=" bg-no-repeat min-h-screen text-gray-100 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-y-scroll ">
     <!-- navbar -->
 <nav class=" shadow-sm shadow-gray-700">
     <div class="max-w-6xl mx-auto px-4">
@@ -28,19 +28,19 @@
 
         <!-- Links for Desktop -->
         <div class="hidden sm:flex space-x-6 text-blue-600 font-semibold" id="navLinks">
-            <a href="?page=home" data-target="home" class="nav-link hover:text-pink-600"><i class="fa-solid fa-wallet"></i></a>
-            <a href="?page=addMoney" data-target="addMoney" class="nav-link hover:text-pink-600"><i class="fa-solid fa-circle-plus"></i></a>
-            <a href="?page=withdrawMoney" data-target="withdrawMoney" class="nav-link hover:text-pink-600"><i class="fa-solid fa-circle-minus"></i></a>
-            <a href="?page=transactionHistory" data-target="transactionHistory" class="nav-link hover:text-pink-600"><i class="fa-solid fa-clock-rotate-left"></i></a>
+            <a href="?page=home" data-target="home" class="nav-link hover:text-pink-600 size-6 hover:scale-105 transition"><i class="fa-solid fa-wallet"></i></a>
+            <a href="?page=addMoney" data-target="addMoney" class="nav-link hover:text-pink-600  size-6 hover:scale-105 transition"><i class="fa-solid fa-circle-plus"></i></a>
+            <a href="?page=withdrawMoney" data-target="withdrawMoney" class="nav-link hover:text-pink-600 size-6 hover:scale-105 transition"><i class="fa-solid fa-circle-minus"></i></a>
+            <a href="?page=transactionHistory" data-target="transactionHistory" class="nav-link hover:text-pink-600"><i class="fa-solid fa-clock-rotate-left size-6 hover:scale-105 transition"></i></a>
         </div>
     </div>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class=" flex flex-row justify-between text-blue-600 font-semibold pb-4 ">
-        <a href="?page=home" data-target="home" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-wallet"></i></a>
-        <a href="?page=addMoney" data-target="addMoney" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-circle-plus"></i></a>
-        <a href="?page=withdrawMoney" data-target="withdrawMoney" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-circle-minus"></i></a>
-        <a href="?page=transactionHistory" data-target="transactionHistory" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-clock-rotate-left"></i></a>
+        <a href="?page=home" data-target="home" class="nav-link block hover:text-pink-600 "><i class="fa-solid fa-wallet  hover:scale-105 transition-all "></i></a>
+        <a href="?page=addMoney" data-target="addMoney" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-circle-plus  hover:scale-105 transition-all "></i></a>
+        <a href="?page=withdrawMoney" data-target="withdrawMoney" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-circle-minus  hover:scale-105 transition-all "></i></a>
+        <a href="?page=transactionHistory" data-target="transactionHistory" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-clock-rotate-left  hover:scale-105 transition-all "></i></a>
     </div>
     </div>
 </nav>
@@ -48,33 +48,33 @@
     <section id="home" class="page-section flex flex-col space-y-20 items-center pt-5">
         <h1 class="text-2xl font-bold mb-4 text-center text-blue-600">Flower Bank Dashboard</h1>
         <div class="flex flex-col items-center gap-10 ">
-                <p class="text-xl mb-4 text-blue-600 font-bold ">Current Balance </p>
-                <span id="balance" class="font-bold bg-sky rounded-full w-[150px] h-[150px] flex items-center justify-center text-white text-xl outline-yellow-300 outline-offset-[10px] outline-9">৳0</span>
+                <p class="text-xl mb-4 text-blue-600 font-bold pt-5 ">Current Balance </p>
+                <span id="balance" class="font-bold bg-sky rounded-full w-[150px] h-[150px] flex items-center justify-center text-white text-xl outline-yellow-300 outline-offset-[10px] outline-9 hover:outline-offset-[0px]  cursor-pointer transition-all duration-400 hover:scale-105">৳0</span>
         </div>
-        <div class="flex flex-col space-y-8 ">
-            <button onclick="showPage('addMoney')" class="bg-green-500 text-white px-4 py-3 hover:bg-green-600 rounded-full">Add Money</button>
-            <button onclick="showPage('withdrawMoney')" class="bg-red-500 text-white px-4 py-3 hover:bg-red-600 rounded-full">Withdraw Money</button>
-            <button onclick="showPage('transactionHistory')" class="bg-blue-500 text-white px-4 py-3  hover:bg-blue-600 rounded-full">Transaction History</button>
+        <div class="flex flex-col space-y-8 mb-8">
+            <button onclick="showPage('addMoney')" class="bg-green-500 text-white px-4 py-3 hover:bg-green-600 rounded-full  hover:scale-105 transition-all cursor-pointer ">Add Money</button>
+            <button onclick="showPage('withdrawMoney')" class="bg-red-500 text-white px-4 py-3 hover:bg-red-600 rounded-full hover:scale-105 transition-all cursor-pointer">Withdraw Money</button>
+            <button onclick="showPage('transactionHistory')" class="bg-blue-500 text-white px-4 py-3  hover:bg-blue-600 rounded-full hover:scale-105 transition-all cursor-pointer">Transaction History</button>
         </div>
     </section>
 
         <!-- Add Money Section -->
-    <section id="addMoney" class="page-section hidden space-y-10 text-center">
+    <section id="addMoney" class="page-section hidden space-y-10 text-center pt-5">
         <h1 class="text-2xl font-bold mb-4 text-blue-600 "> Add Money</h1>
-        <input type="number" id="addAmount" class="p-2 border rounded-full w-full sm:w-1/2 mb-4 text-white bg-gray-800" placeholder="Enter amount to add" />
-        <button id="addBtn" class="bg-green-500 text-white px-4 py-2  hover:bg-green-600 rounded-full w-full sm:w-1/2">Add Money</button>
+        <input type="number" id="addAmount" class="p-2 border rounded-full sm:w-1/2 mb-4 text-white bg-gray-800 w-[90vw]" placeholder="Enter amount to add" />
+        <button id="addBtn" class="bg-green-500 text-white px-4 py-2  hover:bg-green-600 rounded-full w-[90vw] sm:w-1/2 hover:scale-105 transition-all cursor-pointer">Add Money</button>
     </section>
     <!-- Withdraw Section -->
-    <section id="withdrawMoney" class="page-section hidden space-y-10 text-center">
+    <section id="withdrawMoney" class="page-section hidden space-y-10 text-center pt-5 ">
         <h1 class="text-2xl font-bold mb-4 text-blue-600 "> Withdraw Money</h1>
-        <input type="number" id="withdrawAmount" class="p-2 border rounded-full w-full sm:w-1/2 mb-4 text-white bg-gray-800" placeholder="Enter amount to withdraw"/>
-        <button id="withdrawBtn" class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 w-full sm:w-1/2">Withdraw Money</button>
+        <input type="number" id="withdrawAmount" class="p-2 border rounded-full w-[90vw] sm:w-1/2 mb-4 text-white bg-gray-800" placeholder="Enter amount to withdraw"/>
+        <button id="withdrawBtn" class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 w-[90vw] sm:w-1/2 hover:scale-105 transition-all cursor-pointer">Withdraw Money</button>
     </section>
         <!-- Transaction Section -->
-    <section id="transactionHistory" class="page-section hidden text-center space-y-10">
+    <section id="transactionHistory" class="page-section hidden text-center space-y-10 pt-5">
         <h1 class="text-2xl font-bold mb-4 text-blue-600"> Transaction History</h1>
-        <ul id="historyList" class="space-y-2 bg-gray-900 p-4 rounded-full"></ul>
-        <button id="resetBtn" class="mt-4 bg-red-500 text-white px-4 py-2 rounded-full sm:w-1/2 hover:bg-red-600 w-full">
+        <ul id="historyList" class="space-y-3 p-5"></ul>
+        <button id="resetBtn" class="mt-4 mb-8 bg-red-500 text-white px-4  py-2 rounded-full sm:w-1/2 hover:bg-red-600 w-[90vw]">
         Clear Balance & History
         </button>
     </section>
