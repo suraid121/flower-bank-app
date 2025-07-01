@@ -6,6 +6,7 @@
     <title>Flower Bank</title>
     <script src="https://kit.fontawesome.com/204064b763.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
     <style>
     .page-section.hidden {
         display: none !important;
@@ -77,5 +78,156 @@
         Clear Balance & History
         </button>
     </section>
+<script>
+  // Page switching
+    const links = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.page-section');
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function showPage(pageId) {
+    sections.forEach(section => section.classList.add('hidden'));
+
+    const selected = document.getElementById(pageId);
+    if (selected) {
+        selected.classList.remove('hidden');
+    } else {
+        const home = document.getElementById('home');
+        if (home) home.classList.remove('hidden');
+    }
+
+    history.pushState({ page: pageId }, '', '?page=' + pageId);
+    localStorage.setItem('lastPage', pageId);
+
+    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+    }
+    }
+
+  // Menu link click
+    links.forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const page = this.getAttribute('data-target');
+        showPage(page);
+    });
+    });
+
+  // Toggle mobile nav
+    if (menuToggle) {
+    menuToggle.addEventListener('click', function () {
+        if (mobileMenu) {
+        mobileMenu.classList.toggle('hidden');
+        }
+    });
+    }
+
+
+  // Load saved page
+    const params = new URLSearchParams(window.location.search);
+    const urlPage = params.get('page');
+    const savedPage = localStorage.getItem('lastPage');
+    if (urlPage) {
+    showPage(urlPage);
+    } else if (savedPage) {
+    showPage(savedPage);
+    } else {
+    showPage('home');
+    }
+
+  // Load balance and transactions
+    let balance = parseFloat(localStorage.getItem('balance'));
+    if (isNaN(balance)) balance = 0;
+
+    let transactions = JSON.parse(localStorage.getItem('transactions'));
+    if (!Array.isArray(transactions)) transactions = [];
+
+  // Show balance
+    const balanceText = document.getElementById('balance');
+    if (balanceText) balanceText.textContent = '৳' + balance;
+
+  // Save data
+    function saveData() {
+    localStorage.setItem('balance', balance);
+    localStorage.setItem('transactions', JSON.stringify(transactions));
+    }
+
+  // Add new transaction
+    function addTransaction(type, amount) {
+    const time = new Date().toLocaleString();
+    transactions.unshift({ time, type, amount, balance });
+    saveData();
+    }
+
+  // Add money
+    const addBtn = document.getElementById('addBtn');
+    if (addBtn) {
+    addBtn.addEventListener('click', function () {
+        const input = document.getElementById('addAmount');
+        const amount = parseFloat(input.value);
+        if (isNaN(amount) || amount <= 0) return alert('Enter a valid amount');
+
+        balance += amount;
+        addTransaction('Added', amount);
+        alert('Money added!');
+        if (balanceText) balanceText.textContent = '৳' + balance;
+        input.value = '';
+        showPage('home');
+    });
+    }
+
+  // Withdraw money
+    const withdrawBtn = document.getElementById('withdrawBtn');
+    if (withdrawBtn) {
+    withdrawBtn.addEventListener('click', function () {
+        const input = document.getElementById('withdrawAmount');
+        const amount = parseFloat(input.value);
+        if (isNaN(amount) || amount <= 0) return alert('Enter a valid amount');
+        if (amount > balance) return alert('Not enough balance');
+
+        balance -= amount;
+        addTransaction('Withdrawn', amount);
+        alert('Money withdrawn!');
+        if (balanceText) balanceText.textContent = '৳' + balance;
+        input.value = '';
+        showPage('home');
+    });
+    }
+
+  // Show history
+    const historyBox = document.getElementById('historyList');
+    if (historyBox) {
+    historyBox.innerHTML = '';
+    if (transactions.length === 0) {
+        const li = document.createElement('li');
+        li.textContent = 'No transactions yet.';
+        li.className = 'text-center text-gray-400';
+        historyBox.appendChild(li);
+    } else {
+        transactions.forEach(t => {
+        const li = document.createElement('li');
+        li.textContent = `${t.time} - ${t.type} - ৳${t.amount} (Balance: ৳${t.balance})`;
+        li.className = `p-2 rounded-full ${t.type === 'Added' ? 'bg-green-800' : 'bg-red-800'}`;
+        historyBox.appendChild(li);
+        });
+    }
+    }
+
+  // Reset everything
+    const resetBtn = document.getElementById('resetBtn');
+    if (resetBtn) {
+    resetBtn.addEventListener('click', function () {
+        const sure = confirm('Reset everything?');
+        if (sure) {
+        localStorage.removeItem('balance');
+        localStorage.removeItem('transactions');
+        localStorage.setItem('lastPage', 'home');
+        alert('Data cleared.');
+        location.reload();
+        }
+    });
+    }
+</script>
+
 </body>
 </html>
