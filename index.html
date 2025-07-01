@@ -14,35 +14,48 @@
 </head>
 <body class=" min-h-screen text-gray-100 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 ">
     <!-- navbar -->
-  <nav class=" shadow-sm shadow-gray-700">
+<nav class=" shadow-sm shadow-gray-700">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="flex justify-between items-center py-4">
+    <div class="flex justify-between items-center py-4">
         <!-- Logo -->
         <div class="text-xl font-bold text-blue-600"> Flower Bank</div>
 
         <!-- Mobile Menu Toggle Button -->
         <button id="menuToggle" class="sm:hidden text-blue-600 text-2xl focus:outline-none">
-          ☰
+        ☰
         </button>
 
         <!-- Links for Desktop -->
         <div class="hidden sm:flex space-x-6 text-blue-600 font-semibold" id="navLinks">
-          <a href="?page=home" data-target="home" class="nav-link hover:text-pink-600"><i class="fa-solid fa-wallet"></i></a>
-          <a href="?page=addMoney" data-target="addMoney" class="nav-link hover:text-pink-600"><i class="fa-solid fa-circle-plus"></i></a>
-          <a href="?page=withdrawMoney" data-target="withdrawMoney" class="nav-link hover:text-pink-600"><i class="fa-solid fa-circle-minus"></i></a>
-          <a href="?page=transactionHistory" data-target="transactionHistory" class="nav-link hover:text-pink-600"><i class="fa-solid fa-clock-rotate-left"></i></a>
+            <a href="?page=home" data-target="home" class="nav-link hover:text-pink-600"><i class="fa-solid fa-wallet"></i></a>
+            <a href="?page=addMoney" data-target="addMoney" class="nav-link hover:text-pink-600"><i class="fa-solid fa-circle-plus"></i></a>
+            <a href="?page=withdrawMoney" data-target="withdrawMoney" class="nav-link hover:text-pink-600"><i class="fa-solid fa-circle-minus"></i></a>
+            <a href="?page=transactionHistory" data-target="transactionHistory" class="nav-link hover:text-pink-600"><i class="fa-solid fa-clock-rotate-left"></i></a>
         </div>
-      </div>
+    </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobileMenu" class=" flex flex-row justify-between text-blue-600 font-semibold pb-4 ">
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class=" flex flex-row justify-between text-blue-600 font-semibold pb-4 ">
         <a href="?page=home" data-target="home" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-wallet"></i></a>
         <a href="?page=addMoney" data-target="addMoney" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-circle-plus"></i></a>
         <a href="?page=withdrawMoney" data-target="withdrawMoney" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-circle-minus"></i></a>
         <a href="?page=transactionHistory" data-target="transactionHistory" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-clock-rotate-left"></i></a>
-      </div>
     </div>
-  </nav>
-    
+    </div>
+</nav>
+        <!-- Dashboard -->
+    <section id="home" class="page-section flex flex-col space-y-10 items-center">
+      <h1 class="text-2xl font-bold mb-4 text-center text-blue-600">Flower Bank Dashboard</h1>
+        <div class="flex flex-col items-center space-y-10">
+                <p class="text-xl mb-4 text-blue-600 font-bold ">Current Balance </p>
+                <span id="balance" class="font-bold bg-blue-400 rounded-full w-[200px] h-[200px] flex items-center justify-center text-white text-xl">৳0</span>
+        </div>
+        <div class="flex flex-col space-y-8 ">
+          <button onclick="showPage('addMoney')" class="bg-green-500 text-white px-4 py-3 hover:bg-green-600 rounded-full">Add Money</button>
+        <button onclick="showPage('withdrawMoney')" class="bg-red-500 text-white px-4 py-3 hover:bg-red-600 rounded-full">Withdraw Money</button>
+        <button onclick="showPage('transactionHistory')" class="bg-blue-500 text-white px-4 py-3  hover:bg-blue-600 rounded-full">Transaction History</button>
+        </div>
+      
+    </section>
 </body>
 </html>
