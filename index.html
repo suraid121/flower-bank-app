@@ -1,13 +1,48 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Bank</title>
+    <script src="https://kit.fontawesome.com/204064b763.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
+    <style>
+    .page-section.hidden {
+        display: none !important;
+    }
+    </style>
 </head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+<body class=" min-h-screen text-gray-100 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 ">
+    <!-- navbar -->
+  <nav class=" shadow-sm shadow-gray-700">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo -->
+        <div class="text-xl font-bold text-blue-600"> Flower Bank</div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menuToggle" class="sm:hidden text-blue-600 text-2xl focus:outline-none">
+          ☰
+        </button>
+
+        <!-- Links for Desktop -->
+        <div class="hidden sm:flex space-x-6 text-blue-600 font-semibold" id="navLinks">
+          <a href="?page=home" data-target="home" class="nav-link hover:text-pink-600"><i class="fa-solid fa-wallet"></i></a>
+          <a href="?page=addMoney" data-target="addMoney" class="nav-link hover:text-pink-600"><i class="fa-solid fa-circle-plus"></i></a>
+          <a href="?page=withdrawMoney" data-target="withdrawMoney" class="nav-link hover:text-pink-600"><i class="fa-solid fa-circle-minus"></i></a>
+          <a href="?page=transactionHistory" data-target="transactionHistory" class="nav-link hover:text-pink-600"><i class="fa-solid fa-clock-rotate-left"></i></a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class=" flex flex-row justify-between text-blue-600 font-semibold pb-4 ">
+        <a href="?page=home" data-target="home" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-wallet"></i></a>
+        <a href="?page=addMoney" data-target="addMoney" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-circle-plus"></i></a>
+        <a href="?page=withdrawMoney" data-target="withdrawMoney" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-circle-minus"></i></a>
+        <a href="?page=transactionHistory" data-target="transactionHistory" class="nav-link block hover:text-pink-600"><i class="fa-solid fa-clock-rotate-left"></i></a>
+      </div>
+    </div>
+  </nav>
+    
 </body>
 </html>
