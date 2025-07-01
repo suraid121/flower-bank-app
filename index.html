@@ -45,17 +45,23 @@
 </nav>
         <!-- Dashboard -->
     <section id="home" class="page-section flex flex-col space-y-10 items-center">
-      <h1 class="text-2xl font-bold mb-4 text-center text-blue-600">Flower Bank Dashboard</h1>
+        <h1 class="text-2xl font-bold mb-4 text-center text-blue-600">Flower Bank Dashboard</h1>
         <div class="flex flex-col items-center space-y-10">
                 <p class="text-xl mb-4 text-blue-600 font-bold ">Current Balance </p>
                 <span id="balance" class="font-bold bg-blue-400 rounded-full w-[200px] h-[200px] flex items-center justify-center text-white text-xl">৳0</span>
         </div>
         <div class="flex flex-col space-y-8 ">
-          <button onclick="showPage('addMoney')" class="bg-green-500 text-white px-4 py-3 hover:bg-green-600 rounded-full">Add Money</button>
-        <button onclick="showPage('withdrawMoney')" class="bg-red-500 text-white px-4 py-3 hover:bg-red-600 rounded-full">Withdraw Money</button>
-        <button onclick="showPage('transactionHistory')" class="bg-blue-500 text-white px-4 py-3  hover:bg-blue-600 rounded-full">Transaction History</button>
+            <button onclick="showPage('addMoney')" class="bg-green-500 text-white px-4 py-3 hover:bg-green-600 rounded-full">Add Money</button>
+            <button onclick="showPage('withdrawMoney')" class="bg-red-500 text-white px-4 py-3 hover:bg-red-600 rounded-full">Withdraw Money</button>
+            <button onclick="showPage('transactionHistory')" class="bg-blue-500 text-white px-4 py-3  hover:bg-blue-600 rounded-full">Transaction History</button>
         </div>
-      
+    </section>
+
+        <!-- Add Money Section -->
+    <section id="addMoney" class="page-section hidden space-y-10 text-center">
+        <h1 class="text-2xl font-bold mb-4 text-blue-600 "> Add Money</h1>
+        <input type="number" id="addAmount" class="p-2 border rounded-full w-full sm:w-1/2 mb-4 text-white bg-gray-800" placeholder="Enter amount to add" />
+        <button id="addBtn" class="bg-green-500 text-white px-4 py-2  hover:bg-green-600 rounded-full w-full sm:w-1/2">Add Money</button>
     </section>
 </body>
 </html>
